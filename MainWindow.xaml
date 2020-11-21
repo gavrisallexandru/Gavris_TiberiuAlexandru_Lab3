@@ -14,7 +14,7 @@
             <Canvas>
                 <Label x:Name="lblGlazedRaised" Content="Glased" Canvas.Left="27" Canvas.Top="27" Height="27" Width="46" FontWeight="Normal"/>
                 <TextBox x:Name="txtGlazedRaised" Canvas.Left="91" Canvas.Top="32" Text="0" TextWrapping="Wrap" Width="71" IsReadOnly="True" FontWeight="Normal"/>
-                <TextBox x:Name="txtSugarRaised" Canvas.Left="91" Canvas.Top="77" Text="0" TextWrapping="Wrap" Width="71" FontWeight="Normal"/>
+                <TextBox x:Name="txtSugarRaised" Canvas.Left="91" Canvas.Top="77" Text="0" TextWrapping="Wrap" Width="71" FontWeight="Normal" IsReadOnly="True"/>
             </Canvas>
         </GroupBox>
         <GroupBox x:Name="gbFilled" Header="Filled" Margin="400,57,137,190" FontWeight="Bold">
@@ -32,18 +32,33 @@
         <GroupBox x:Name="gbSale" Header="Current Sale" Margin="45,239,45,18" FontWeight="Bold">
             <Canvas>
                 <Label x:Name="lblQuantity" Content="Quantity" Canvas.Left="17" Canvas.Top="10" FontWeight="Normal"/>
-                <TextBox x:Name="txtQuantity" Canvas.Left="84" Canvas.Top="14" TextWrapping="Wrap" Width="71" FontWeight="Normal"/>
+                <TextBox x:Name="txtQuantity" Canvas.Left="84" Canvas.Top="14" TextWrapping="Wrap" Width="71" FontWeight="Normal" Text="0"/>
                 <Label x:Name="lblType" Content="Type" Canvas.Left="205" Canvas.Top="10" FontWeight="Normal"/>
                 <ComboBox x:Name="cmbType" Canvas.Left="245" Canvas.Top="10" Width="109"/>
                 <Label x:Name="lblPrice" Content="Price" Canvas.Left="416" Canvas.Top="8" FontWeight="Normal"/>
-                <TextBox x:Name="txtPrice" Canvas.Left="457" Canvas.Top="14" TextWrapping="Wrap" Width="97" FontWeight="Normal"/>
+                <TextBox x:Name="txtPrice" Canvas.Left="457" Canvas.Top="14" TextWrapping="Wrap" Width="97" FontWeight="Normal" Text="0" IsReadOnly="True"/>
                 <ListBox x:Name="lstSale" Height="59" Width="517" Canvas.Left="37" Canvas.Top="49"/>
-                <Label Content="Total" Canvas.Left="396" Canvas.Top="113"/>
-                <TextBox Canvas.Left="445" Canvas.Top="116" Text="0" TextWrapping="Wrap" Width="109"/>
-                <Button Content="Add To Sale" Canvas.Left="597" Canvas.Top="47" Width="76" FontWeight="Normal"/>
-                <Button Content="Remove Item" Canvas.Left="597" Canvas.Top="72" Width="76" FontWeight="Normal"/>
-                <Button Content="Check Out" Canvas.Left="597" Canvas.Top="114" Width="76"/>
+                <Label x:Name="lblTotal" Content="Total" Canvas.Left="396" Canvas.Top="113"/>
+                <TextBox x:Name="txtTotal" Canvas.Left="445" Canvas.Top="116" Text="0" TextWrapping="Wrap" Width="109" FontWeight="Normal" IsReadOnly="True"/>
+                <Button x:Name="btnAddToSale" Content="Add To Sale" Canvas.Left="597" Canvas.Top="47" Width="76" FontWeight="Normal"/>
+                <Button x:Name="btnRemoveItem" Content="Remove Item" Canvas.Left="597" Canvas.Top="72" Width="76" FontWeight="Normal"/>
+                <Button x:Name="btnCheckOut" Content="Check Out" Canvas.Left="597" Canvas.Top="114" Width="76"/>
             </Canvas>
         </GroupBox>
+        <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="131" Margin="0,26,0,0">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit" Click="exitToolStripMenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Doughnuts">
+                <MenuItem Header="Make">
+                    <MenuItem Header="Raised">
+                        <MenuItem x:Name="glazedToolStripMenuItem" Header="Glazed" IsCheckable="True" Click="glazedToolStripMenuItem_Click"/>
+                        <MenuItem x:Name="sugarToolStripMenuItem" Header="Sugar" IsCheckable="True" Click="sugarToolStripMenuItem_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="Filled"/>
+                </MenuItem>
+                <MenuItem x:Name="mnuStop" Header="Stop" Click="stopToolStripMenuItem_Click"/>
+            </MenuItem>
+        </Menu>
     </Grid>
 </Window>
